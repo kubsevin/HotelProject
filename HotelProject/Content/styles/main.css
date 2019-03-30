@@ -1,0 +1,19 @@
+﻿.logoDiv {
+    width: 130px;
+    height: 41px;
+    border: solid 2px #ffffff;
+    text-align: center;
+}
+
+    .logoDiv a {
+        display: block;
+        font-size: 12px;
+        color: #ffffff;
+    }
+
+@media only screen and (max-width: 575) {
+    .logoDiv {
+        width: 40%;
+        height: auto;
+    }
+}

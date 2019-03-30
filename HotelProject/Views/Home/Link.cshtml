@@ -1,0 +1,97 @@
+﻿@model IEnumerable<HotelProject.Models.UserUpdateAndListModel>
+
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Link";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Link</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",null,new
+{
+    data_ajax = "true",
+    data_ajax_method = "GET",
+    data_ajax_mode = "replace",
+    data_ajax_update = "#modal_body",
+    @class = "btn btn-danger",
+    data_toggle = "modal",
+    data_target = "#generalModal"
+})
+</p>
+
+
+<p>
+    @Html.ActionLink("About", "About", null,new
+{
+    data_ajax = "true",
+    data_ajax_method = "GET",
+    data_ajax_mode = "replace",
+    data_ajax_update = "#modal_body",
+    @class = "btn btn-success",
+    data_toggle = "modal",
+    data_target = "#generalModal"
+})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdentityNumber)
+        </th>
+        <th></th>
+    </tr>
+
+
+</table>
+
+<section name="modals">
+
+    <div class="modal fade" id="generalModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" onclick='$("#modal_body").html("")'>
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div id="modal_body" class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick='$("#modal_body").html("")'>Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @Html.Raw(TempData["sweetAlert"])
+
+}
